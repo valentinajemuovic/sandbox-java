@@ -1,4 +1,5 @@
 rootProject.name = 'sandbox'
 include 'measurement-units'
 include 'height-checker'
+include 'height-classifier'
 
