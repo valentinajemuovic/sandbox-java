@@ -25,7 +25,7 @@ public class HeightClassifierTest {
 
     @ParameterizedTest
     @ValueSource(ints = { 160, 161, 179, 180 })
-    void should_classify_as_normal_given_height_is_between_160cm_and_180cm_inclusive(int height) {
+    void should_classify_as_medium_given_height_is_between_160cm_and_180cm_inclusive(int height) {
         var heightClassification = heightClassifier.classify(height);
         assertThat(heightClassification).isEqualTo(HeightClassification.Medium);
     }
