@@ -1,5 +1,5 @@
+import com.optivem.sandbox.HeightClassification;
 import com.optivem.sandbox.HeightClassifier;
-import org.assertj.core.internal.BigDecimals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,23 +17,23 @@ public class HeightClassifierTest {
     }
 
     @Test
-    void should_classify_as_tall_given_height_is_greater_than_160cm() {
-        var height = 161;
-        var isTall = heightClassifier.isTall(height);
-        assertThat(isTall).isTrue();
+    void should_classify_as_tall_given_height_is_greater_than_180cm() {
+        var height = 181;
+        var heightClassification = heightClassifier.classify(height);
+        assertThat(heightClassification).isEqualTo(HeightClassification.Tall);
     }
 
-    @Test
-    void should_classify_as_tall_given_height_is_equal_to_160cm() {
-        var height = 160;
-        var isTall = heightClassifier.isTall(height);
-        assertThat(isTall).isTrue();
+    @ParameterizedTest
+    @ValueSource(ints = { 160, 161, 179, 180 })
+    void should_classify_as_normal_given_height_is_between_160cm_and_180cm_inclusive(int height) {
+        var heightClassification = heightClassifier.classify(height);
+        assertThat(heightClassification).isEqualTo(HeightClassification.Medium);
     }
 
     @Test
     void should_classify_as_short_given_height_is_less_than_160cm() {
         var height = 159;
-        var isTall = heightClassifier.isTall(height);
-        assertThat(isTall).isFalse();
+        var heightClassification = heightClassifier.classify(height);
+        assertThat(heightClassification).isEqualTo(HeightClassification.Short);
     }
 }
