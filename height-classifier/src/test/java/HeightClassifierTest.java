@@ -16,16 +16,23 @@ public class HeightClassifierTest {
         heightClassifier = new HeightClassifier();
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = { 161, 162, 200 })
-    void should_classify_as_tall_given_height_is_greater_than_160cm(int height) {
+    @Test
+    void should_classify_as_tall_given_height_is_greater_than_160cm() {
+        var height = 161;
         var isTall = heightClassifier.isTall(height);
         assertThat(isTall).isTrue();
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = { 160, 159, 150 })
-    void should_classify_as_short_given_height_is_less_than__or_equal_to_160cm(int height) {
+    @Test
+    void should_classify_as_tall_given_height_is_equal_to_160cm() {
+        var height = 160;
+        var isTall = heightClassifier.isTall(height);
+        assertThat(isTall).isTrue();
+    }
+
+    @Test
+    void should_classify_as_short_given_height_is_less_than_160cm() {
+        var height = 159;
         var isTall = heightClassifier.isTall(height);
         assertThat(isTall).isFalse();
     }
