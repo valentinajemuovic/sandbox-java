@@ -3,6 +3,8 @@ import com.optivem.sandbox.adapters.ThirdPartyHeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ThirdPartyHeightGatewayTest {
@@ -20,6 +22,6 @@ public class ThirdPartyHeightGatewayTest {
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
         var height = heightGateway.getHeight(ssn);
-        assertThat(height).isEqualTo(40);
+        assertThat(height).isEqualTo(BigDecimal.valueOf(40));
     }
 }
