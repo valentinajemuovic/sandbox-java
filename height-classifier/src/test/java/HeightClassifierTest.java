@@ -27,8 +27,9 @@ public class HeightClassifierTest {
     @Test
     void should_classify_as_tall_given_height_is_greater_than_180cm() {
         var ssn = "123456789";
-        var height = toInches(BigDecimal.valueOf(181.0));
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
+        var heightInches = toInches(BigDecimal.valueOf(181.0));
+        // NOTE: Alternative: var heightInches = BigDecimal.valueOf(71.25984252); // 181cm
+        when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
         var heightClassification = heightClassifier.classify(ssn);
 
@@ -37,10 +38,11 @@ public class HeightClassifierTest {
 
     @ParameterizedTest
     @ValueSource(ints = { 160, 161, 179, 180 })
-    void should_classify_as_medium_given_height_is_between_160cm_and_180cm_inclusive(int heightInt) {
+    void should_classify_as_medium_given_height_is_between_160cm_and_180cm_inclusive(int heightCentimeters) {
         var ssn = "123456789";
-        var height = toInches(BigDecimal.valueOf(heightInt));
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
+        var heightInches = toInches(BigDecimal.valueOf(heightCentimeters));
+
+        when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
         var heightClassification = heightClassifier.classify(ssn);
 
@@ -50,8 +52,8 @@ public class HeightClassifierTest {
     @Test
     void should_classify_as_short_given_height_is_less_than_160cm() {
         var ssn = "123456789";
-        var height = toInches(BigDecimal.valueOf(159));
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
+        var heightInches = toInches(BigDecimal.valueOf(159));
+        when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
         var heightClassification = heightClassifier.classify(ssn);
 

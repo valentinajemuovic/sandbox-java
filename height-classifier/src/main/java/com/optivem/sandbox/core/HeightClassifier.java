@@ -14,15 +14,15 @@ public class HeightClassifier {
     }
 
     public HeightClassification classify(String ssn) {
-        var heightInInches = heightGateway.getHeight(ssn);
+        var heightInches = heightGateway.getHeightInches(ssn);
 
-        var heightInCentimeters = heightInInches.multiply(CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
+        var heightCentimeters = heightInches.multiply(CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
 
-        if(heightInCentimeters.compareTo(BigDecimal.valueOf(180)) > 0) {
+        if(heightCentimeters.compareTo(BigDecimal.valueOf(180)) > 0) {
             return HeightClassification.Tall;
         }
 
-        if(heightInCentimeters.compareTo(BigDecimal.valueOf(160)) < 0) {
+        if(heightCentimeters.compareTo(BigDecimal.valueOf(160)) < 0) {
             return HeightClassification.Short;
         }
 

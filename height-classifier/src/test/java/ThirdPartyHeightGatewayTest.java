@@ -21,7 +21,7 @@ public class ThirdPartyHeightGatewayTest {
         // NOTE: In real applications, we wouldn't be hardcoding values for third party systems
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
-        var height = heightGateway.getHeight(ssn);
+        var height = heightGateway.getHeightInches(ssn);
         assertThat(height).isEqualTo(BigDecimal.valueOf(40));
     }
 }
