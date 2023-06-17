@@ -50,8 +50,7 @@ public class HeightClassifierTest {
     @Test
     void should_classify_as_short_given_height_is_less_than_160cm() {
         var ssn = "123456789";
-        var heightCentimeters = BigDecimal.valueOf(159);
-        var height = toInches(heightCentimeters);
+        var height = toInches(BigDecimal.valueOf(159));
         when(heightGateway.getHeight(ssn)).thenReturn(height);
 
         var heightClassification = heightClassifier.classify(ssn);
