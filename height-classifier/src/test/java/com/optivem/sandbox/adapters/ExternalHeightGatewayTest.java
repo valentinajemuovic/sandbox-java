@@ -1,4 +1,4 @@
-package sandbox;
+package com.optivem.sandbox.adapters;
 
 import com.optivem.sandbox.adapters.ExternalHeightGateway;
 import com.optivem.sandbox.core.HeightGateway;

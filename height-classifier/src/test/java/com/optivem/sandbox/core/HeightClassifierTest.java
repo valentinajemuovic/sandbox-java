@@ -1,4 +1,4 @@
-package com.optivem.sandbox;
+package com.optivem.sandbox.core;
 
 import com.optivem.sandbox.core.Constants;
 import com.optivem.sandbox.core.HeightClassification;
