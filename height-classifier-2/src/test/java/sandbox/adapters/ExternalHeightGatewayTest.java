@@ -1,6 +1,7 @@
 package sandbox.adapters;
 
 import com.optivem.sandbox.adapters.ExternalHeightGateway;
+import com.optivem.sandbox.adapters.HeightConverter;
 import com.optivem.sandbox.core.HeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class ExternalHeightGatewayTest {
         // NOTE: In real applications, we wouldn't be hardcoding values for third party systems
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
-        var height = heightGateway.getHeightInches(ssn);
-        assertThat(height).isEqualTo(BigDecimal.valueOf(40));
+        var height = heightGateway.getHeight(ssn);
+        assertThat(height).isEqualTo(HeightConverter.fromInches(BigDecimal.valueOf(40)));
     }
 }
