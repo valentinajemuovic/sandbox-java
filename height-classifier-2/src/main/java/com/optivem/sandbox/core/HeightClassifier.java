@@ -1,11 +1,8 @@
 package com.optivem.sandbox.core;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-
 public class HeightClassifier {
-    private static final Height TALL_THRESHOLD = Height.of(180);
-    private static final Height SHORT_THRESHOLD = Height.of(160);
+    private static final Height TALL_THRESHOLD = Height.ofCentimeters(180);
+    private static final Height SHORT_THRESHOLD = Height.ofCentimeters(160);
 
     private HeightGateway heightGateway;
 
