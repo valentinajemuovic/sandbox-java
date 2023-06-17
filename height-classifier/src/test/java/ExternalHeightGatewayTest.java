@@ -1,5 +1,5 @@
 import com.optivem.sandbox.core.HeightGateway;
-import com.optivem.sandbox.adapters.ThirdPartyHeightGateway;
+import com.optivem.sandbox.adapters.ExternalHeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,13 +7,13 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ThirdPartyHeightGatewayTest {
+public class ExternalHeightGatewayTest {
 
     private HeightGateway heightGateway;
 
     @BeforeEach
     void setup() {
-        this.heightGateway = new ThirdPartyHeightGateway();
+        this.heightGateway = new ExternalHeightGateway();
     }
 
     @Test

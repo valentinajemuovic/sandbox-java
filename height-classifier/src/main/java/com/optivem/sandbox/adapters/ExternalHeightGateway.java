@@ -5,7 +5,7 @@ import com.optivem.sandbox.core.HeightGateway;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
-public class ThirdPartyHeightGateway implements HeightGateway {
+public class ExternalHeightGateway implements HeightGateway {
 
     // NOTE: This is for demo purposes only, it would not exist in the real implementation
     private final HashMap<String, BigDecimal> heightInches = new HashMap<>() {{
