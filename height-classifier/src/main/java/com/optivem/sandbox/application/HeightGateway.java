@@ -1,5 +1,7 @@
 package com.optivem.sandbox.application;
 
+import java.math.BigDecimal;
+
 public interface HeightGateway {
-    int getHeight(String ssn);
+    BigDecimal getHeight(String ssn);
 }

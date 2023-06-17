@@ -1,6 +1,11 @@
 package com.optivem.sandbox.application;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 public class HeightClassifier {
+
+    private static BigDecimal CENTIMETERS_PER_INCH = BigDecimal.valueOf(2.54);
 
     private HeightGateway heightGateway;
 
@@ -9,13 +14,15 @@ public class HeightClassifier {
     }
 
     public HeightClassification classify(String ssn) {
-        var height = heightGateway.getHeight(ssn);
+        var heightInInches = heightGateway.getHeight(ssn);
 
-        if(height > 180) {
+        var heightInCentimeters = heightInInches.multiply(CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
+
+        if(heightInCentimeters.compareTo(BigDecimal.valueOf(180)) > 0) {
             return HeightClassification.Tall;
         }
 
-        if(height < 160) {
+        if(heightInCentimeters.compareTo(BigDecimal.valueOf(160)) < 0) {
             return HeightClassification.Short;
         }
 
