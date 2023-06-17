@@ -1,6 +1,6 @@
 package com.optivem.sandbox.adapters;
 
-import com.optivem.sandbox.application.HeightGateway;
+import com.optivem.sandbox.core.HeightGateway;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

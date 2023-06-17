@@ -1,8 +1,6 @@
-import com.optivem.sandbox.application.HeightClassification;
-import com.optivem.sandbox.application.HeightClassifier;
-import com.optivem.sandbox.application.HeightGateway;
-import org.assertj.core.data.Percentage;
-import org.hamcrest.Matchers;
+import com.optivem.sandbox.core.HeightClassification;
+import com.optivem.sandbox.core.HeightClassifier;
+import com.optivem.sandbox.core.HeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,10 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.comparesEqualTo;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

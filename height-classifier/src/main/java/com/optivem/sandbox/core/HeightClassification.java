@@ -1,4 +1,4 @@
-package com.optivem.sandbox.application;
+package com.optivem.sandbox.core;
 
 public enum HeightClassification {
     None,

@@ -1,4 +1,4 @@
-import com.optivem.sandbox.application.HeightGateway;
+import com.optivem.sandbox.core.HeightGateway;
 import com.optivem.sandbox.adapters.ThirdPartyHeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
