@@ -1,12 +1,11 @@
-import com.optivem.sandbox.adapters.ExternalHeightGateway;
-import com.optivem.sandbox.core.Constants;
-import com.optivem.sandbox.core.Height;
+package com.optivem.sandbox;
+
 import com.optivem.sandbox.core.HeightGateway;
+import com.optivem.sandbox.adapters.ExternalHeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,8 +23,7 @@ public class ExternalHeightGatewayTest {
         // NOTE: In real applications, we wouldn't be hardcoding values for third party systems
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
-        var height = heightGateway.getHeight(ssn);
-        var expectedHeight = Height.ofInches(BigDecimal.valueOf(40));
-        assertThat(height).isEqualTo(expectedHeight);
+        var height = heightGateway.getHeightInches(ssn);
+        assertThat(height).isEqualTo(BigDecimal.valueOf(40));
     }
 }

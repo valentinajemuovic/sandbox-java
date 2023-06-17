@@ -1,11 +1,8 @@
 package com.optivem.sandbox.adapters;
 
-import com.optivem.sandbox.core.Constants;
-import com.optivem.sandbox.core.Height;
 import com.optivem.sandbox.core.HeightGateway;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.HashMap;
 
 public class ExternalHeightGateway implements HeightGateway {
@@ -18,10 +15,9 @@ public class ExternalHeightGateway implements HeightGateway {
     }};
 
     @Override
-    public Height getHeight(String ssn) {
+    public BigDecimal getHeightInches(String ssn) {
         // NOTE: In the real implementation, we would make a here a call to some third party system (e.g. via REST API)
         // to retrieve a height for some person via their SSN
-        var inches = SAMPLE_SSN_HEIGHT_INCHES.get(ssn);
-        return Height.ofInches(inches);
+        return SAMPLE_SSN_HEIGHT_INCHES.get(ssn);
     }
 }

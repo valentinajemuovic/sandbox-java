@@ -1,3 +1,5 @@
+package com.optivem.sandbox;
+
 import com.optivem.sandbox.core.Constants;
 import com.optivem.sandbox.core.HeightClassification;
 import com.optivem.sandbox.core.HeightClassifier;
