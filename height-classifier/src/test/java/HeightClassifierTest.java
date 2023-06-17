@@ -1,3 +1,4 @@
+import com.optivem.sandbox.core.Constants;
 import com.optivem.sandbox.core.HeightClassification;
 import com.optivem.sandbox.core.HeightClassifier;
 import com.optivem.sandbox.core.HeightGateway;
@@ -61,7 +62,6 @@ public class HeightClassifierTest {
     }
 
     private static BigDecimal toInches(BigDecimal centimeters) {
-        var divisor = BigDecimal.valueOf(2.54);
-        return centimeters.divide(divisor, MathContext.DECIMAL64);
+        return centimeters.divide(Constants.CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
     }
 }
