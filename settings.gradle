@@ -1,3 +1,4 @@
 rootProject.name = 'sandbox'
 include 'height-classifier'
+include 'height-classifier-2'
 
