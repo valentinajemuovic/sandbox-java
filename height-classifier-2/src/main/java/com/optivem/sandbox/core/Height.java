@@ -8,8 +8,16 @@ import java.math.BigDecimal;
 public class Height {
     private BigDecimal centimeters;
 
-    public Height(BigDecimal centimeters) {
+    private Height(BigDecimal centimeters) {
         this.centimeters = centimeters;
+    }
+
+    public static Height of(BigDecimal centimeters) {
+        return new Height(centimeters);
+    }
+
+    public static Height of(double centimeters) {
+        return of(BigDecimal.valueOf(centimeters));
     }
 
     public boolean isGreaterThan(Height height) {

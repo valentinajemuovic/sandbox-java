@@ -23,6 +23,6 @@ public class ExternalHeightGateway implements HeightGateway {
         // to retrieve a height for some person via their SSN
         var inches = SAMPLE_SSN_HEIGHT_INCHES.get(ssn);
         var centimeters = inches.multiply(Constants.CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
-        return new Height(centimeters);
+        return Height.of(centimeters);
     }
 }
