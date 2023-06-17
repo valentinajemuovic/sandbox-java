@@ -25,7 +25,7 @@ public class ExternalHeightGatewayTest {
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
         var height = heightGateway.getHeight(ssn);
-        var expectedHeight = Height.ofCentimeters(BigDecimal.valueOf(40).multiply(Constants.CENTIMETERS_PER_INCH, MathContext.DECIMAL64));
+        var expectedHeight = Height.ofInches(BigDecimal.valueOf(40));
         assertThat(height).isEqualTo(expectedHeight);
     }
 }

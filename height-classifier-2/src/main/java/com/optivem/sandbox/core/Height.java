@@ -8,6 +8,8 @@ import java.math.MathContext;
 @EqualsAndHashCode
 public class Height {
 
+    private static BigDecimal CENTIMETERS_PER_INCH = BigDecimal.valueOf(2.54);
+
     private BigDecimal centimeters;
 
     private Height(BigDecimal centimeters) {
@@ -23,7 +25,7 @@ public class Height {
     }
 
     public static Height ofInches(BigDecimal inches) {
-        var centimeters = inches.multiply(Constants.CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
+        var centimeters = inches.multiply(CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
         return ofCentimeters(centimeters);
     }
 
