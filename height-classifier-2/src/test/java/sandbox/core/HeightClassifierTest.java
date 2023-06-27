@@ -1,16 +1,17 @@
 package sandbox.core;
 
 import com.optivem.sandbox.core.Height;
-import com.optivem.sandbox.core.HeightClassification;
 import com.optivem.sandbox.core.HeightClassifier;
 import com.optivem.sandbox.core.HeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -27,38 +28,22 @@ public class HeightClassifierTest {
         heightClassifier = new HeightClassifier(heightGateway);
     }
 
-    @Test
-    void should_classify_as_tall_given_height_is_greater_than_180cm() {
-        var ssn = "123456789";
-        var height = Height.ofCentimeters(181.0);
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
-
-        var heightClassification = heightClassifier.classify(ssn);
-
-        assertThat(heightClassification).isEqualTo(HeightClassification.Tall);
+    private static Stream<Arguments> should_classify_as_tall_given_height_is_greater_than_180cm() {
+        return Stream.of(
+                Arguments.of(181, true),
+                Arguments.of(180, false),
+                Arguments.of(179, false));
     }
 
     @ParameterizedTest
-    @ValueSource(ints = { 160, 161, 179, 180 })
-    void should_classify_as_medium_given_height_is_between_160cm_and_180cm_inclusive(int heightCentimeters) {
+    @MethodSource
+    void should_classify_as_tall_given_height_is_greater_than_180cm(double heightCentimeters,
+                                                                    boolean expectedIsTall) {
         var ssn = "123456789";
-        var height = Height.ofCentimeters(heightCentimeters);
+        when(heightGateway.getHeight(ssn)).thenReturn(Height.ofCentimeters(heightCentimeters));
 
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
+        var isTall = heightClassifier.isTall(ssn);
 
-        var heightClassification = heightClassifier.classify(ssn);
-
-        assertThat(heightClassification).isEqualTo(HeightClassification.Medium);
-    }
-
-    @Test
-    void should_classify_as_short_given_height_is_less_than_160cm() {
-        var ssn = "123456789";
-        var height = Height.ofCentimeters(159);
-        when(heightGateway.getHeight(ssn)).thenReturn(height);
-
-        var heightClassification = heightClassifier.classify(ssn);
-
-        assertThat(heightClassification).isEqualTo(HeightClassification.Short);
+        assertThat(isTall).isEqualTo(expectedIsTall);
     }
 }
