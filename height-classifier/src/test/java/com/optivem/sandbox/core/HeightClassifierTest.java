@@ -1,9 +1,5 @@
 package com.optivem.sandbox.core;
 
-import com.optivem.sandbox.core.Constants;
-import com.optivem.sandbox.core.HeightClassification;
-import com.optivem.sandbox.core.HeightClassifier;
-import com.optivem.sandbox.core.HeightGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -34,10 +30,12 @@ public class HeightClassifierTest {
         // NOTE: Alternative: var heightInches = BigDecimal.valueOf(71.25984252); // 181cm
         when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
-        var heightClassification = heightClassifier.classify(ssn);
+        var heightClassification = heightClassifier.isTall(ssn);
 
-        assertThat(heightClassification).isEqualTo(HeightClassification.Tall);
+        assertThat(heightClassification).isEqualTo(true);
     }
+
+
 
     @ParameterizedTest
     @ValueSource(ints = { 160, 161, 179, 180 })
@@ -47,9 +45,9 @@ public class HeightClassifierTest {
 
         when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
-        var heightClassification = heightClassifier.classify(ssn);
+        var heightClassification = heightClassifier.isTall(ssn);
 
-        assertThat(heightClassification).isEqualTo(HeightClassification.Medium);
+        assertThat(heightClassification).isEqualTo(false);
     }
 
     @Test
@@ -58,9 +56,9 @@ public class HeightClassifierTest {
         var heightInches = toInches(BigDecimal.valueOf(159));
         when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
 
-        var heightClassification = heightClassifier.classify(ssn);
+        var heightClassification = heightClassifier.isTall(ssn);
 
-        assertThat(heightClassification).isEqualTo(HeightClassification.Short);
+        assertThat(heightClassification).isEqualTo(false);
     }
 
     private static BigDecimal toInches(BigDecimal centimeters) {
