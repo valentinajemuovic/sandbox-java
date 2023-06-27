@@ -27,26 +27,21 @@ public class HeightClassifierTest {
     }
 
     private static Stream<Arguments> should_classify_as_tall_given_height_is_greater_than_180cm() {
-        return Stream.of(Arguments.of(181.0, true),
-                Arguments.of(180.0, false),
-                Arguments.of(179.0, false));
+        return Stream.of(
+                Arguments.of(71.25984252 /* in = 181cm */, true),
+                Arguments.of(70.86614173 /* in = 180cm */ , false),
+                Arguments.of(70.47244094 /* in = 179cm */ , false));
     }
 
     @ParameterizedTest
     @MethodSource
-    void should_classify_as_tall_given_height_is_greater_than_180cm(double heightCentimeters,
+    void should_classify_as_tall_given_height_is_greater_than_180cm(double heightInches,
                                                                     boolean expectedIsTall) {
         var ssn = "123456789";
-        var heightInches = toInches(BigDecimal.valueOf(heightCentimeters));
-        // NOTE: Alternative: var heightInches = BigDecimal.valueOf(71.25984252); // 181cm
-        when(heightGateway.getHeightInches(ssn)).thenReturn(heightInches);
+        when(heightGateway.getHeightInches(ssn)).thenReturn(BigDecimal.valueOf(heightInches));
 
         var heightClassification = heightClassifier.isTall(ssn);
 
         assertThat(heightClassification).isEqualTo(expectedIsTall);
-    }
-
-    private static BigDecimal toInches(BigDecimal centimeters) {
-        return centimeters.divide(Constants.CENTIMETERS_PER_INCH, MathContext.DECIMAL64);
     }
 }
