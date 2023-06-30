@@ -1,4 +1,4 @@
-package com.optivem.sandbox.adapters;
+package com.optivem.sandbox.infrastructure;
 
 import com.optivem.sandbox.core.HeightGateway;
 
