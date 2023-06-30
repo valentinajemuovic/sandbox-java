@@ -37,8 +37,8 @@ public class HeightClassifierTest {
         var ssn = "123456789";
         when(heightGateway.getHeightInches(ssn)).thenReturn(BigDecimal.valueOf(heightInches));
 
-        var heightClassification = heightClassifier.isTall(ssn);
+        var isTall = heightClassifier.isTall(ssn);
 
-        assertThat(heightClassification).isEqualTo(expectedIsTall);
+        assertThat(isTall).isEqualTo(expectedIsTall);
     }
 }
