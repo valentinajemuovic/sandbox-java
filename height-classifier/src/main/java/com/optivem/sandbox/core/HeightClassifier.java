@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 
 public class HeightClassifier {
-    private static BigDecimal CENTIMETERS_PER_INCH = BigDecimal.valueOf(2.54);
+    private static final BigDecimal CENTIMETERS_PER_INCH = BigDecimal.valueOf(2.54);
     private static final BigDecimal TALL_THRESHOLD = BigDecimal.valueOf(180);
 
-    private HeightGateway heightGateway;
+    private final HeightGateway heightGateway;
 
     public HeightClassifier(HeightGateway heightGateway) {
         this.heightGateway = heightGateway;
