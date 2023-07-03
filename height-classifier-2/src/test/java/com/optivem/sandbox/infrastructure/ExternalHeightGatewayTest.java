@@ -24,6 +24,6 @@ public class ExternalHeightGatewayTest {
         // instead we would be using techniques such as contract testing
         var ssn = "247582352";
         var height = heightGateway.getHeight(ssn);
-        assertThat(height).isEqualByComparingTo(Height.ofInches(40));
+        assertThat(height).isEqualByComparingTo(HeightConverter.fromInches(40));
     }
 }
