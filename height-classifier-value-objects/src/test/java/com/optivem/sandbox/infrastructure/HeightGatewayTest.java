@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class HeightGatewayImplTest {
+public class HeightGatewayTest {
     private HeightPort heightPort;
     private HeightGateway heightGateway;
 
@@ -28,7 +28,6 @@ public class HeightGatewayImplTest {
 
         var height = heightGateway.getHeight(ssn);
 
-        var expectedHeight = Height.ofCentimeters(25.4);
-        assertThat(height).isEqualByComparingTo(expectedHeight);
+        assertThat(height).isEqualByComparingTo(Height.ofCentimeters(25.4));
     }
 }
