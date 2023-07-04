@@ -1,4 +1,4 @@
 rootProject.name = 'sandbox'
 include 'height-classifier-primitives'
-include 'temp2-height-classifier-value-objects'
+include 'height-classifier-value-objects'
 
