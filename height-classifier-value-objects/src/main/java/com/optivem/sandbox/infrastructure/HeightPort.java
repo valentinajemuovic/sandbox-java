@@ -1,4 +1,4 @@
-package com.optivem.sandbox.core;
+package com.optivem.sandbox.infrastructure;
 
 import java.math.BigDecimal;
 
