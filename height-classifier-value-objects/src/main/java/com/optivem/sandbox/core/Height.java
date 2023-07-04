@@ -1,7 +1,6 @@
 package com.optivem.sandbox.core;
 
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 

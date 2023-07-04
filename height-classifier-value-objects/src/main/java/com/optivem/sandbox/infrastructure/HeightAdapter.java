@@ -1,11 +1,9 @@
 package com.optivem.sandbox.infrastructure;
 
-import com.optivem.sandbox.core.HeightGateway;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 
-public class ExternalHeightGateway implements HeightGateway {
+public class HeightAdapter implements HeightPort {
 
     // NOTE: This is for demo purposes only, it would not exist in the real implementation
     private static final HashMap<String, BigDecimal> SAMPLE_SSN_HEIGHT_INCHES = new HashMap<>() {{

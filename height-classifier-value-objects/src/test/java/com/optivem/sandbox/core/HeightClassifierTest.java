@@ -32,10 +32,10 @@ public class HeightClassifierTest {
 
     @ParameterizedTest
     @MethodSource
-    void should_classify_as_tall_given_height_is_greater_than_180cm(double heightCentimeters,
+    void should_classify_as_tall_given_height_is_greater_than_180cm(double height,
                                                                     boolean expectedIsTall) {
         var ssn = "123456789";
-        when(heightGateway.getHeight(ssn)).thenReturn(Height.ofCentimeters(heightCentimeters));
+        when(heightGateway.getHeight(ssn)).thenReturn(Height.ofCentimeters(height));
 
         var isTall = heightClassifier.isTall(ssn);
 
