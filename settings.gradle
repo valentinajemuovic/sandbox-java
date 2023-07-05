@@ -1,6 +1,5 @@
 rootProject.name = 'sandbox'
 include 'height-classifier-primitives'
 include 'height-classifier-value-objects'
-include 'temp'
 include 'echo'
 
