@@ -9,7 +9,7 @@ sonar {
     properties {
         property "sonar.projectKey", "valentinacupac_sandbox-java"
         property "sonar.organization", "valentinacupac"
-        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.host", "https://sonarcloud.io"
     }
 }
 
